@@ -1,0 +1,51 @@
+id,category,brand,model,power,pricePerDay,available
+1,Citadine,Renault,Clio 5,90,120,true
+2,Citadine,Peugeot,208,100,130,true
+3,Citadine,Volkswagen,Polo,95,135,true
+4,Citadine,Toyota,Yaris,85,115,true
+5,Citadine,Hyundai,i20,84,110,true
+6,Citadine,Kia,Rio,84,110,true
+7,Citadine,Ford,Fiesta,85,115,false
+8,Citadine,Citroen,C3,83,105,true
+9,Citadine,Seat,Ibiza,95,125,true
+10,Citadine,Fiat,500,70,95,true
+11,Citadine,Dacia,Sandero,90,90,true
+12,Citadine,Opel,Corsa,75,110,true
+13,Citadine,Suzuki,Swift,83,105,true
+14,Citadine,Nissan,Micra,92,115,true
+15,Citadine,Skoda,Fabia,95,120,true
+16,Citadine,Audi,A1,110,180,true
+17,Citadine,Mini,Cooper,136,210,false
+18,Citadine,Renault,Twingo,65,85,true
+19,Berline,Peugeot,508,130,180,true
+20,Berline,Volkswagen,Passat,150,200,true
+21,Berline,Audi,A4,150,250,true
+22,Berline,BMW,Serie 3,156,270,true
+23,Berline,Mercedes-Benz,Classe C,170,290,true
+24,Berline,Skoda,Octavia,150,190,true
+25,Berline,Renault,Megane GrandCoupe,115,160,true
+26,Berline,Toyota,Corolla,122,170,true
+27,Berline,Hyundai,Elantra,128,165,true
+28,Berline,Kia,Cerato,128,165,false
+29,Berline,Honda,Civic,126,175,true
+30,Berline,Mazda,6,165,220,true
+31,Berline,Volvo,S60,197,310,true
+32,Berline,Alfa Romeo,Giulia,200,320,true
+33,Berline,Audi,A6,204,380,false
+34,Berline,BMW,Serie 5,184,390,true
+35,Berline,Mercedes-Benz,Classe E,197,410,true
+36,Commerciale,Renault,Kangoo Express,95,150,true
+37,Commerciale,Peugeot,Partner,100,155,true
+38,Commerciale,Citroen,Berlingo,100,155,true
+39,Commerciale,Fiat,Doblo Cargo,105,145,true
+40,Commerciale,Volkswagen,Caddy Van,102,170,true
+41,Commerciale,Ford,Transit Courier,100,150,true
+42,Commerciale,Toyota,Proace City,100,160,true
+43,Commerciale,Renault,Trafic,120,220,true
+44,Commerciale,Peugeot,Expert,120,230,true
+45,Commerciale,Mercedes-Benz,Vito,136,280,true
+46,Commerciale,Ford,Transit Custom,130,240,false
+47,Commerciale,Citroen,Jumpy,120,230,true
+48,Commerciale,Fiat,Ducato,140,260,true
+49,Commerciale,Renault,Master,135,270,true
+50,Commerciale,Iveco,Daily,136,290,true

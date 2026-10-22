@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Rent - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>AUTO RENT</h1>
+        <p>Contactez notre agence</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="index.html#catalogue">Catalogue</a>
+        <a href="index.html#reservation">Réservation</a>
+        <a href="contact.html">Contact</a>
+        <a href="devis.html">Dernier Devis</a>
+    </nav>
+
+    <main>
+        <section class="contact-section">
+            <h2>Formulaire de contact</h2>
+            <form id="contactForm">
+                <div>
+                    <label for="c_nom">Nom complet :</label>
+                    <input type="text" id="c_nom" placeholder="Votre nom">
+                </div>
+                <div>
+                    <label for="c_email">Email :</label>
+                    <input type="email" id="c_email" placeholder="exemple@mail.com">
+                </div>
+                <div>
+                    <label for="c_tel">Téléphone :</label>
+                    <input type="tel" id="c_tel" placeholder="Ex: 98123456">
+                </div>
+                <div>
+                    <label for="c_sujet">Sujet :</label>
+                    <input type="text" id="c_sujet" placeholder="Objet de votre demande">
+                </div>
+                <div>
+                    <label for="c_message">Message :</label>
+                    <textarea id="c_message" rows="5" placeholder="Votre message..."></textarea>
+                </div>
+                <div>
+                    <button type="submit">Envoyer</button>
+                </div>
+                <p id="contactFeedback" style="font-weight: bold; margin-top: 10px;"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Auto Rent - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const nom = document.getElementById("c_nom").value.trim();
+            const email = document.getElementById("c_email").value.trim();
+            const tel = document.getElementById("c_tel").value.trim();
+            const sujet = document.getElementById("c_sujet").value.trim();
+            const message = document.getElementById("c_message").value.trim();
+            const feedback = document.getElementById("contactFeedback");
+
+            // Validations
+            if (!nom || !email || !tel || !sujet || !message) {
+                feedback.style.color = "red";
+                feedback.textContent = "Veuillez remplir tous les champs.";
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                feedback.style.color = "red";
+                feedback.textContent = "Veuillez saisir une adresse email valide.";
+                return;
+            }
+
+            if (tel.length < 8) {
+                feedback.style.color = "red";
+                feedback.textContent = "Le numéro de téléphone doit contenir au moins 8 chiffres.";
+                return;
+            }
+
+            feedback.style.color = "green";
+            feedback.textContent = "Merci " + nom + ", votre message a bien été envoyé !";
+            document.getElementById("contactForm").reset();
+        });
+    </script>
+</body>
+</html>

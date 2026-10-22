@@ -219,3 +219,24 @@ footer {
     font-size: 0.9rem;
     margin-top: 40px;
 }
+/* ======================================================= */
+/*  AMELIORATION AI 2 : REGLES D'IMPRESSION DU DEVIS     */
+/* ======================================================= */
+@media print {
+    /* N5abbew el menu wel boutons wa9t l'impression */
+    header, nav, footer, .no-print, button {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+
+    /* N5alliw ken el war9a mte3 el devis */
+    .devis-card {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+        margin: 0 !important;
+        width: 100% !important;
+    }
+}

@@ -1,131 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Rent - Location de voitures</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
 </head>
 
 <body>
-
-    <!-- En-tête -->
     <header>
         <h1>AUTO RENT</h1>
         <p>Agence de location de voitures</p>
     </header>
 
-    <!-- Navigation -->
     <nav>
-        <a href="#accueil">Accueil</a>
+        <a href="index.html">Accueil</a>
         <a href="#catalogue">Catalogue</a>
-        <a href="#prix">Prix</a>
         <a href="#reservation">Réservation</a>
+        <a href="contact.html">Contact</a>
+        <a href="devis.html">Dernier Devis</a>
     </nav>
 
-    <!-- Contenu principal -->
     <main>
-
-        <!-- Accueil -->
-        <section id="accueil">
-            <h2>Bienvenue chez Auto Rent</h2>
-            <p>
-                Auto Rent vous propose des voitures adaptées à vos besoins
-                pour vos déplacements professionnels ou personnels.
-            </p>
-        </section>
-
-        <!-- Catégories -->
-        <section id="categories">
-            <h2>Nos catégories de véhicules</h2>
-            <div class="categories">
-                <div class="category">
-                    <img src="images/citadine.jpg" alt="Voiture citadine">
-                    <h3>Citadine</h3>
-                    <p>
-                        Des voitures compactes et économiques,
-                        idéales pour les déplacements en ville.
-                    </p>
-                </div>
-
-                <div class="category">
-                    <img src="images/berline.jpg" alt="Voiture berline">
-                    <h3>Berline</h3>
-                    <p>
-                        Des voitures confortables adaptées
-                        aux longs trajets.
-                    </p>
-                </div>
-
-                <div class="category">
-                    <img src="images/commerciale.jpg" alt="Voiture commerciale">
-                    <h3>Commerciale</h3>
-                    <p>
-                        Des véhicules adaptés au transport
-                        de marchandises.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Catalogue -->
         <section id="catalogue">
-            <h2>Catalogue des véhicules</h2>
-            <table>
+            <h2>Catalogue des véhicules (Données CSV)</h2>
+            <table id="catalogueTable" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Catégorie</th>
                         <th>Véhicule</th>
                         <th>Puissance</th>
                         <th>Prix / jour</th>
+                        <th>État</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Citadine</td>
-                        <td>Renault Clio</td>
-                        <td>90 CV</td>
-                        <td>120 DT</td>
-                    </tr>
-                    <tr>
-                        <td>Citadine</td>
-                        <td>Peugeot 208</td>
-                        <td>100 CV</td>
-                        <td>130 DT</td>
-                    </tr>
-                    <tr>
-                        <td>Berline</td>
-                        <td>Peugeot 508</td>
-                        <td>130 CV</td>
-                        <td>180 DT</td>
-                    </tr>
-                    <tr>
-                        <td>Berline</td>
-                        <td>Volkswagen Passat</td>
-                        <td>150 CV</td>
-                        <td>200 DT</td>
-                    </tr>
-                    <tr>
-                        <td>Commerciale</td>
-                        <td>Renault Kangoo</td>
-                        <td>95 CV</td>
-                        <td>150 DT</td>
-                    </tr>
+                    <!-- Généré automatiquement par script.js -->
                 </tbody>
             </table>
         </section>
 
-        <!-- Prix -->
-        <section id="prix">
-            <h2>Prix</h2>
-            <p>
-                Les prix sont calculés en fonction du véhicule choisi
-                et du nombre de jours de location.
-            </p>
-        </section>
-
-        <!-- Réservation -->
         <section id="reservation">
             <h2>Réservation</h2>
             <form id="reservationForm">
@@ -146,23 +62,18 @@
 
                 <div>
                     <label for="categorie">Catégorie :</label>
-                    <select id="categorie">
+                    <select id="categorie" style="width: 100%;">
                         <option value="">-- Sélectionner --</option>
-                        <option value="citadine">Citadine</option>
-                        <option value="berline">Berline</option>
-                        <option value="commerciale">Commerciale</option>
+                        <option value="Citadine">Citadine</option>
+                        <option value="Berline">Berline</option>
+                        <option value="Commerciale">Commerciale</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="voiture">Voiture :</label>
-                    <select id="voiture">
+                    <select id="voiture" style="width: 100%;">
                         <option value="">-- Sélectionner --</option>
-                        <option value="120">Renault Clio</option>
-                        <option value="130">Peugeot 208</option>
-                        <option value="180">Peugeot 508</option>
-                        <option value="200">Volkswagen Passat</option>
-                        <option value="150">Renault Kangoo</option>
                     </select>
                 </div>
 
@@ -182,23 +93,21 @@
                 </div>
 
                 <div>
-                    <button type="button" onclick="calculerPrix()">Calculer le prix</button>
-                    <button type="submit">Réserver</button>
+                    <button type="submit">Générer le devis</button>
                 </div>
 
                 <p id="message"></p>
             </form>
         </section>
-
     </main>
 
-    <!-- Pied de page -->
     <footer>
         <p>&copy; 2026 Auto Rent - Agence de location de voitures</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
     <script src="script.js"></script>
-
 </body>
-
 </html>

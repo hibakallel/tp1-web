@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Rent - Devis de Réservation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .devis-card {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 30px;
+            background: #fff;
+            border: 2px solid #333;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .devis-header {
+            text-align: center;
+            border-bottom: 2px dashed #333;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .devis-section {
+            margin-bottom: 15px;
+        }
+        .devis-section h4 {
+            margin-bottom: 5px;
+            text-decoration: underline;
+        }
+        .devis-total {
+            border-top: 2px dashed #333;
+            padding-top: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-align: right;
+        }
+        .no-print {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .btn-print {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* ÉTAPE 5 : RÈGLES CSS POUR L'IMPRESSION */
+        @media print {
+            body {
+                background: white;
+            }
+            header, nav, footer, .no-print {
+                display: none !important; /* Masquer les menus et boutons à l'impression */
+            }
+            .devis-card {
+                border: 1px solid #000;
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="no-print">
+        <h1>AUTO RENT</h1>
+        <p>Devis officiel</p>
+    </header>
+
+    <nav class="no-print">
+        <a href="index.html">Accueil</a>
+        <a href="contact.html">Contact</a>
+        <a href="devis.html">Devis</a>
+    </nav>
+
+    <main>
+        <div class="no-print">
+            <button class="btn-print" onclick="window.print()">🖨️ Imprimer le devis</button>
+            <a href="index.html#reservation" style="margin-left: 15px;">Modifier la réservation</a>
+        </div>
+
+        <div class="devis-card" id="devisContent">
+            <div class="devis-header">
+                <h2>AUTO RENT</h2>
+                <h3>DEVIS DE LOCATION</h3>
+                <p id="devisDate"></p>
+            </div>
+
+            <div class="devis-section">
+                <h4>Client :</h4>
+                <p><strong>Nom :</strong> <span id="d_nom"></span></p>
+                <p><strong>Email :</strong> <span id="d_email"></span></p>
+                <p><strong>Téléphone :</strong> <span id="d_tel"></span></p>
+            </div>
+
+            <div class="devis-section">
+                <h4>Véhicule :</h4>
+                <p><strong>Catégorie :</strong> <span id="d_cat"></span></p>
+                <p><strong>Véhicule :</strong> <span id="d_voiture"></span></p>
+            </div>
+
+            <div class="devis-section">
+                <h4>Période de location :</h4>
+                <p><strong>Du :</strong> <span id="d_debut"></span></p>
+                <p><strong>Au :</strong> <span id="d_fin"></span></p>
+                <p><strong>Nombre de jours :</strong> <span id="d_jours"></span> jour(s)</p>
+                <p><strong>Prix journalier :</strong> <span id="d_prixJour"></span> DT</p>
+            </div>
+
+            <div class="devis-total">
+                TOTAL À PAYER : <span id="d_total"></span> DT
+            </div>
+        </div>
+    </main>
+
+    <footer class="no-print">
+        <p>&copy; 2026 Auto Rent</p>
+    </footer>
+
+    <script>
+        // Charger les données sauvegardées
+        const donnees = localStorage.getItem("autoRentDevis");
+        if (donnees) {
+            const devis = JSON.parse(donnees);
+            document.getElementById("devisDate").textContent = "Émis le : " + new Date().toLocaleDateString('fr-FR');
+            document.getElementById("d_nom").textContent = devis.nom;
+            document.getElementById("d_email").textContent = devis.email;
+            document.getElementById("d_tel").textContent = devis.telephone;
+            document.getElementById("d_cat").textContent = devis.categorie;
+            document.getElementById("d_voiture").textContent = devis.voiture;
+            document.getElementById("d_debut").textContent = devis.dateDebut;
+            document.getElementById("d_fin").textContent = devis.dateFin;
+            document.getElementById("d_jours").textContent = devis.nombreJours;
+            document.getElementById("d_prixJour").textContent = devis.prixJournalier;
+            document.getElementById("d_total").textContent = devis.prixTotal;
+        } else {
+            document.getElementById("devisContent").innerHTML = "<p style='text-align:center;'>Aucun devis disponible. Veuillez d'abord effectuer une réservation sur la page d'accueil.</p>";
+        }
+    </script>
+</body>
+</html>
